@@ -20,7 +20,7 @@ gem 'bridgetown-arcade-db'
 gem 'arcadedb'
 gem 'arcade-time-graph'
 ```
-
+( the gem is not released jet. so, reference to the github-repositories or clone everything an refer to their local location ) 
 * activate the plugin in `config/initializers.rb`
 ```
 init :ssr

@@ -16,16 +16,24 @@ Manual setup:
 
 * Add the following to `Gemfile` 
 ```
-gem 'bridgetown-arcade-db'
-gem 'arcadedb'
-gem 'arcade-time-graph'
+
+gem 'arcadedb', git: 'https://github.com/topofocus/arcadedb"
+gem 'arcade-time-graph', git: 'https://github.com/topofocus/-arcade-time-graph" 
+gem 'bridgetown-arcade-db' , git: 'https://github.com/topofocus/bridgetown-arcade-db"
 ```
 ( the gem is not released jet. so, reference to the github-repositories or clone everything an refer to their local location ) 
 * activate the plugin in `config/initializers.rb`
-```
-init :ssr
+``` ruby
+init :ssr                         
 init :"bridgetown-routes"
 init :"bridgetown-arcade-db"
+```
+or if the DB should only referenced through deployment from static pages
+``` ruby
+only :static, :console do
+ init :bridgetown-arcade-db
+end
+
 ```
 
 * add `arcade.yml` to the `config`-dir

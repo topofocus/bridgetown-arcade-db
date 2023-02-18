@@ -32,23 +32,23 @@ init :"bridgetown-arcade-db"
 ```
 --- #/config/arcade.yml
 :environment:
-:test:
-dbname: test
-user:  root
-pass: ****
-:development:
-dbname: playground
-user: root
-pass: ****      
-:production:
-dbname: bridgetown
-user: root
-pass: ****      
+  :test:
+    dbname: test
+    user:  root
+    pass: ****
+  :development:
+    dbname: playground
+    user: root
+    pass: ****      
+ :production:
+    dbname: bridgetown
+    user: root
+    pass: ****      
 :admin:
-:host: localhost
-:port: 2480
-:user: root
-:pass: ****
+  :host: localhost
+  :port: 2480
+  :user: root
+  :pass: ****
 :modeldir: model
 :logger: stdout           # 'file' or 'stdout'
 :namespace: Arcade

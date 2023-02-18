@@ -45,13 +45,13 @@ init :"bridgetown-arcade-db"
     user: root
     pass: ****      
 :admin:
-  :host: localhost
-  :port: 2480
-  :user: root
-  :pass: ****
-:modeldir: model
+  :host: localhost        # enter ip-address or name of the arcadeDB-Server
+  :port: 2480             # 
+  :user: root             #  this is used for lowlevel Api-Access
+  :pass: ****             #
+:autoload: true           #  load model if a link is detected in a record
 :logger: stdout           # 'file' or 'stdout'
-:namespace: Arcade
+:namespace: Arcade        #  default namespace
 ```
 
 * create a `model`-directory, and there an `arcade`-Namespace-Directory.

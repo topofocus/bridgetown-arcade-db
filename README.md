@@ -98,7 +98,7 @@ The records are available in Frontmatter, components and in Bridgetown-Documents
 
 ## Contributing
 
-1. Fork it (https://github.com/bridgetownrb/bridgetown-activerecord/fork)
+1. Fork it (https://github.com/topofocus/bridgetown-arcade-db/fork)
 2. Clone the fork using `git clone` to your local development machine.
 3. Create your feature branch (`git checkout -b my-new-feature`)
 4. Commit your changes (`git commit -am 'Add some feature'`)

@@ -9,10 +9,8 @@ module BridgetownArcadeDb
 
   def self.load_models(config)
     loader = Zeitwerk::Loader.new
-    puts "Dir"
     root= Pathname.new( config.root_dir )
-   puts configuration(config)[:modeldir] # || "model"
-   loader.push_dir root.join( configuration(config)[:modeldir] || "model")
+    loader.push_dir root.join( configuration(config)[:modeldir] || "model")
     loader.setup
   end
   def self.configuration(config)
@@ -26,7 +24,7 @@ end
 
 Bridgetown.initializer :"bridgetown-arcade-db" do |config|
    BridgetownArcadeDb.load_models config
-   puts "ROOT: #{Arcade::ProjectRoot}"
+   Arcade.send( :remove_const, :ProjectRoot )
    Arcade.const_set :ProjectRoot, Pathname.new( config.root_dir )
    Arcade::Init.connect Bridgetown.environment
 end

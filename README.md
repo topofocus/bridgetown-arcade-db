@@ -16,42 +16,50 @@ Manual setup:
 
 * Add the following to `Gemfile` 
 ```
-gem 'bridgetown-arcade-db'
-gem 'arcadedb'
-gem 'arcade-time-graph'
-```
 
-* activate the plugin in `config/initializers.rb`
+gem 'arcadedb', git: 'https://github.com/topofocus/arcadedb"
+gem 'arcade-time-graph', git: 'https://github.com/topofocus/-arcade-time-graph" 
+gem 'bridgetown-arcade-db' , git: 'https://github.com/topofocus/bridgetown-arcade-db"
 ```
-init :ssr
+( the gem is not released jet. so, reference to the github-repositories or clone everything an refer to their local location ) 
+* activate the plugin in `config/initializers.rb`
+``` ruby
+init :ssr                         
 init :"bridgetown-routes"
 init :"bridgetown-arcade-db"
+```
+or if the DB should only referenced through deployment from static pages
+``` ruby
+only :static, :console do
+ init :bridgetown-arcade-db
+end
+
 ```
 
 * add `arcade.yml` to the `config`-dir
 ```
 --- #/config/arcade.yml
 :environment:
-:test:
-dbname: test
-user:  root
-pass: ****
-:development:
-dbname: playground
-user: root
-pass: ****      
-:production:
-dbname: bridgetown
-user: root
-pass: ****      
+  :test:
+    dbname: test
+    user:  root
+    pass: ****
+  :development:
+    dbname: playground
+    user: root
+    pass: ****      
+ :production:
+    dbname: bridgetown
+    user: root
+    pass: ****      
 :admin:
-:host: localhost
-:port: 2480
-:user: root
-:pass: ****
-:modeldir: model
+  :host: localhost        # enter ip-address or name of the arcadeDB-Server
+  :port: 2480             # 
+  :user: root             #  this is used for lowlevel Api-Access
+  :pass: ****             #
+:autoload: true           #  load model if a link is detected in a record
 :logger: stdout           # 'file' or 'stdout'
-:namespace: Arcade
+:namespace: Arcade        #  default namespace
 ```
 
 * create a `model`-directory, and there an `arcade`-Namespace-Directory.
@@ -98,7 +106,7 @@ The records are available in Frontmatter, components and in Bridgetown-Documents
 
 ## Contributing
 
-1. Fork it (https://github.com/bridgetownrb/bridgetown-activerecord/fork)
+1. Fork it (https://github.com/topofocus/bridgetown-arcade-db/fork)
 2. Clone the fork using `git clone` to your local development machine.
 3. Create your feature branch (`git checkout -b my-new-feature`)
 4. Commit your changes (`git commit -am 'Add some feature'`)

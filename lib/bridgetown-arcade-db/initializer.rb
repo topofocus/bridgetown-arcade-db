@@ -26,5 +26,6 @@ Bridgetown.initializer :"bridgetown-arcade-db" do |config|
    BridgetownArcadeDb.load_models config
    Arcade.send( :remove_const, :ProjectRoot )
    Arcade.const_set :ProjectRoot, Pathname.new( config.root_dir )
+   ProjectRoot = Pathname.new( config.root_dir )
    Arcade::Init.connect Bridgetown.environment
 end
